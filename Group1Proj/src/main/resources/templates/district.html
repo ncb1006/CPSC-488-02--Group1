@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<title>Group1</title>
+<head> 
+<meta charset="ISO-8859-1">
+    <title> School District Selection </title>
+</head>
+<body>
+	<form th:object="${districts}" 
+     method="post" >
+    	<div style="display: flex; justify-content: flex-start;">
+	    	<p> <b>State:&nbsp; </b></p>
+	    	<p th:text="${districts.state}"></p>
+	    	<p>&nbsp;&nbsp;&nbsp;</p>
+	    	<p><b>County:&nbsp;</b></p>
+	    	<p th:text="${districts.county}"></p>
+    	</div>
+  	</form>
+  <p>		
+  	    <label style="padding-left:10px;">Select a school district:</label>
+          <select name="county" id="county"  onchange="location = this.value;">
+            <option th:each="districts : ${districts.district}" th:text="${districts}" 
+            th:value="@{'county/'+${districts}}"></option>
+          </select> 
+  </p>
+
+</body>
+</html>

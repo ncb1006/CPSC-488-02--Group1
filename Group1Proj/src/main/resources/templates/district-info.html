@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<title>Group1</title>
+<head> 
+<meta charset="ISO-8859-1">
+    <title> School District Selection </title>
+</head>
+<body>
+	<form th:object="${districts}" 
+     method="post" >
+    	<div style="display: flex; justify-content: flex-start;">
+	    	<p> <b>State:&nbsp; </b></p>
+	    	<p th:text="${districts.state}"></p>
+	    	<p>&nbsp;&nbsp;&nbsp;</p>
+	    	
+	    	<p><b>County:&nbsp;</b></p>
+	    	<p th:text="${districts.county}"></p>
+	    	<p>&nbsp;&nbsp;&nbsp;</p>
+	    	
+	    	<p><b>District:&nbsp;</b></p>
+	    	<p th:text="${districtName}"></p>
+    	</div>
+  	</form>
+  	
+  	<table>
+  		<tr  th:each="school : ${schoolsInfo}">
+  			<td>School Name:&nbsp;</td>
+  			<td th:text="${school.schoolName}"></td>
+  			
+  			<td>&nbsp;&nbsp;&nbsp; School Address:&nbsp;</td>
+  			<td th:text="${school.address}"></td>
+  			
+  			<td>&nbsp;&nbsp;&nbsp; Number of Students:&nbsp;</td>
+  			<td th:text="${school.numStudents}"></td>
+  			
+  			<td>&nbsp;&nbsp;&nbsp; Low Grade:&nbsp;</td>
+  			<td th:text="${school.lowGrade}"></td>
+  			
+  			<td>&nbsp;&nbsp;&nbsp; High Grade:&nbsp;</td>
+  			<td th:text="${school.highGrade}"></td>
+  		</tr>
+  	</table>
+  	
+
+
+</body>
+</html>
